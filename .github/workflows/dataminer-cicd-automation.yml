@@ -18,7 +18,6 @@ jobs:
   CI:
     uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@main
     with:
-      workspace: ${{ github.workspace }}
       referenceName: ${{ github.ref_name }}
       runNumber: ${{ github.run_number }}
       referenceType: ${{ github.ref_type }}
