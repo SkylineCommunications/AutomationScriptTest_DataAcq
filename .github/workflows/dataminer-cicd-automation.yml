@@ -16,7 +16,7 @@ on:
 jobs:
 
   CI:
-    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@master
+    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@main
 
   # # Optional 0 or More CD Jobs as needed
   # CD:
