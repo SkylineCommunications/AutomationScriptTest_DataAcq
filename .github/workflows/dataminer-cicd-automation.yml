@@ -18,11 +18,11 @@ jobs:
   CI:
     uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@main
     with:
-      workspace: $GITHUB_WORKSPACE
-      referenceName: $GITHUB_REF_NAME
-      runNumber: $GITHUB_RUN_NUMBER
-      referenceType: $GITHUB_REF_TYPE
-      repository: $GITHUB_REPOSITORY
+      workspace: ${{ github.workspace }}
+      referenceName: ${{ github.ref_name }}
+      runNumber: ${{ github.run_number }}
+      referenceType: ${{ github.ref_type }}
+      repository: ${{ github.repository }}
     secrets: inherit
     
   # # Optional 0 or More CD Jobs as needed
