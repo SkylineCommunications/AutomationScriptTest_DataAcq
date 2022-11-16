@@ -23,7 +23,16 @@ jobs:
       referenceType: ${{ github.ref_type }}
       repository: ${{ github.repository }}
     secrets: inherit
-    
+  
+  LOG:
+    environment: production
+    name: LOG
+    runs-on: ubuntu-latest
+    needs: CI
+    steps:
+      - name: Post Actions
+        run: echo  ${{ needs.CI.outputs.artifact-id-development }}
+        
   # # Optional 0 or More CD Jobs as needed
   # CD:
   #   if: $GITHUB_REF_TYPE == 'tag'
