@@ -54,7 +54,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using Skyline.DataMiner.Automation;
-
+using Newtonsoft.Json;
 /// <summary>
 /// DataMiner Script Class.
 /// </summary>
@@ -66,6 +66,16 @@ public class Script
 	/// <param name="engine">Link with SLAutomation process.</param>
 	public void Run(Engine engine)
 	{
-		engine.GenerateInformation("Simple TestAutomation is OK.");
+		List<string> videogames = new List<string>
+{
+	"a",
+	"b",
+	"c"
+};
+
+		string json = JsonConvert.SerializeObject(videogames);
+
+		engine.GenerateInformation("Simple TestAutomation is OK: " + json);
+
 	}
 }
