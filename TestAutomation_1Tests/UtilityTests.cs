@@ -1,16 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Script;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace Script.Tests
+﻿namespace Script.Tests
 {
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 	[TestClass()]
 	public class UtilityTests
 	{
@@ -19,6 +10,8 @@ namespace Script.Tests
 		{
 			// Act
 			var output = Utilities.Utility.ToUpper("a");
+
+
 
 			// Assert
 			Assert.AreEqual("A", output);
