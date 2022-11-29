@@ -31,7 +31,7 @@ jobs:
     needs: CI
     steps:
       - name: Post Actions
-        run: echo  ${{ needs.CI.outputs.artifact-id-development }}
+        run: echo  ${{ needs.CI.outputs.artifact-id }}
         
   # # Optional 0 or More CD Jobs as needed
   # CD:
