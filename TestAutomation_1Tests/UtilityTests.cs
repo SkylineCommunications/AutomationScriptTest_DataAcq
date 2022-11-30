@@ -2,7 +2,9 @@
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-	[TestClass()]
+    using Skyline.DataMiner.DataMinerSolutions.ProcessAutomation.Model;
+
+    [TestClass()]
 	public class UtilityTests
 	{
 		[TestMethod()]
@@ -13,6 +15,18 @@
 
 			// Assert
 			Assert.AreEqual("A", output);
+		}
+	}
+
+	[TestClass()]
+	public class TestUsingProcessAutomationAssembly
+	{
+		[TestMethod()]
+		public void TestCode()
+        {
+			ConsumerInfo info = new ConsumerInfo();
+			info.ConsumerReference = "Test";
+			Assert.IsNotNull(info.ConsumerReference);
 		}
 	}
 }
