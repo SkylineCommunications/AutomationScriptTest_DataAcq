@@ -50,6 +50,9 @@ dd/mm/2022	1.0.0.1		XXX, Skyline	Initial version
 */
 
 using System.Collections.Generic;
+using System.Linq;
+
+using GenericNameSpace;
 
 using Newtonsoft.Json;
 
@@ -77,6 +80,9 @@ public class Script
 
 		engine.GenerateInformation("Simple TestAutomation is OK: " + json);
 
+		IJustAClass j = new JustAClass();
+		GenericClass generic = new GenericClass();
+		engine.GenerateInformation(generic.MakeAgentVersionFolder(j, "C:\\Skyline DataMiner"));
 	}
 }
 

@@ -11,8 +11,6 @@
 			// Act
 			var output = Utilities.Utility.ToUpper("a");
 
-
-
 			// Assert
 			Assert.AreEqual("A", output);
 		}
