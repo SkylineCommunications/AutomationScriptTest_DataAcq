@@ -61,6 +61,9 @@
     <PackageReference Include="MSTest.TestFramework">
       <Version>2.2.7</Version>
     </PackageReference>
+    <PackageReference Include="Skyline.DataMiner.Dev.Common">
+      <Version>10.2.12.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestAutomation_1\TestAutomation_1.csproj">
