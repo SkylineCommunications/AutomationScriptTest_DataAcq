@@ -2,8 +2,6 @@
 {
 	using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    using Skyline.DataMiner.DataMinerSolutions.ProcessAutomation.Model;
-
     [TestClass()]
 	public class UtilityTests
 	{
