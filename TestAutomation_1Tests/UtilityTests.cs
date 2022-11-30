@@ -18,15 +18,16 @@
 		}
 	}
 
-	[TestClass()]
-	public class TestUsingProcessAutomationAssembly
-	{
-		[TestMethod()]
-		public void TestCode()
-        {
-			ConsumerInfo info = new ConsumerInfo();
-			info.ConsumerReference = "Test";
-			Assert.IsNotNull(info.ConsumerReference);
-		}
-	}
+	// DOES NOT WORK: ProcessAutomation.dll cannot run. This first needs to turn into a public NuGet with all dependencies grabbed from DevPack.
+	//[TestClass()]
+	//public class TestUsingProcessAutomationAssembly
+	//{
+	//	[TestMethod()]
+	//	public void TestCode()
+ //       {
+	//		ConsumerInfo info = new ConsumerInfo();
+	//		info.ConsumerReference = "Test";
+	//		Assert.IsNotNull(info.ConsumerReference);
+	//	}
+	//}
 }
