@@ -22,7 +22,8 @@ jobs:
       runNumber: ${{ github.run_number }}
       referenceType: ${{ github.ref_type }}
       repository: ${{ github.repository }}
-    secrets: inherit
+    secrets:
+      api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
   
   LOG:
     environment: production
@@ -44,7 +45,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Skyline DataMiner Deploy Action
-        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1.0.3
+        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action/Actions/Dockerfile@UseReusableModuleNuGets
         with:
            # Stage deploy
           stage: Deploy
