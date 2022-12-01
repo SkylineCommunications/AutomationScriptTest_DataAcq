@@ -22,7 +22,8 @@ jobs:
       runNumber: ${{ github.run_number }}
       referenceType: ${{ github.ref_type }}
       repository: ${{ github.repository }}
-    secrets: inherit
+    secrets:
+      api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
   
   LOG:
     environment: production
@@ -33,23 +34,22 @@ jobs:
       - name: Post Actions
         run: echo  ${{ needs.CI.outputs.artifact-id }}
         
-  # # Optional 0 or More CD Jobs as needed
-  # CD:
-  #   if: $GITHUB_REF_TYPE == 'tag'
-  #   environment: production
-  #   name: CD
-  #   runs-on: ubuntu-latest
-  #   needs: CI
+   # Optional 0 or More CD Jobs as needed
+  CD:
+    environment: production
+    name: CD
+    runs-on: ubuntu-latest
+    needs: CI
 
-  #   steps:
-  #     - uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v3
 
-  #     - name: Skyline DataMiner Deploy Action
-  #       uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1.0.3
-  #       with:
-  #         # Stage deploy
-  #         stage: Deploy
-  #         # The API-key generated in the DCP Admin app as authentication for a certain DataMiner System. E.g. g597e77412e34297b827c2570a8fa2bc
-  #         api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
-  #         # Id of the uploaded artifact
-  #         artifact-id: ${{ needs.CI.outputs.artifact-id }}
+      - name: Skyline DataMiner Deploy Action
+        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action/Actions/Dockerfile@UseReusableModuleNuGets
+        with:
+           # Stage deploy
+          stage: Deploy
+           # The API-key generated in the DCP Admin app as authentication for a certain DataMiner System. E.g. g597e77412e34297b827c2570a8fa2bc
+          api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
+           # Id of the uploaded artifact
+          artifact-id: ${{ needs.CI.outputs.artifact-id }}
