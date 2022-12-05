@@ -45,6 +45,7 @@
     <Content Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utility.cs" />
     <Compile Include="GenericClass.cs" />
     <Compile Include="IJustAClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

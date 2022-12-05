@@ -80,18 +80,8 @@ public class Script
 		engine.GenerateInformation("Simple TestAutomation is OK: " + json);
 
 		IJustAClass j = new JustAClass();
+		j.Version = "10";
 		GenericClass generic = new GenericClass();
 		engine.GenerateInformation(generic.MakeAgentVersionFolder(j, "C:\\Skyline DataMiner"));
-	}
-}
-
-namespace Utilities
-{
-	public static class Utility
-	{
-		public static string ToUpper(string input)
-		{
-			return input.ToUpper();
-		}
 	}
 }
