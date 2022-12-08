@@ -57,7 +57,6 @@ using GenericNameSpace;
 using Newtonsoft.Json;
 
 using Skyline.DataMiner.Automation;
-using Skyline.DataMiner.DataMinerSolutions.ProcessAutomation.Model;
 /// <summary>
 /// DataMiner Script Class.
 /// </summary>
@@ -78,24 +77,11 @@ public class Script
 
 		string json = JsonConvert.SerializeObject(videogames);
 
-		ConsumerInfo info = new ConsumerInfo();
-		info.ConsumerReference = "Test";
-
 		engine.GenerateInformation("Simple TestAutomation is OK: " + json);
 
 		IJustAClass j = new JustAClass();
+		j.Version = "10";
 		GenericClass generic = new GenericClass();
 		engine.GenerateInformation(generic.MakeAgentVersionFolder(j, "C:\\Skyline DataMiner"));
-	}
-}
-
-namespace Utilities
-{
-	public static class Utility
-	{
-		public static string ToUpper(string input)
-		{
-			return input.ToUpper();
-		}
 	}
 }

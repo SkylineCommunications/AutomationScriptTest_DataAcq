@@ -1,6 +1,5 @@
 ﻿namespace GenericNameSpace
 {
-
     using System.IO;
 
     public class GenericClass

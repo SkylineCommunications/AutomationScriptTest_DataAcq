@@ -40,15 +40,12 @@
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ProcessAutomation">
-      <HintPath>..\Dlls\ProcessAutomation.dll</HintPath>
-      <DataMinerDllPath>C:\Skyline DataMiner\Files\ProcessAutomation.dll</DataMinerDllPath>
-    </Reference>
     <Reference Include="System" />
     <AdditionalFiles Include="stylecop.json" />
     <Content Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utility.cs" />
     <Compile Include="GenericClass.cs" />
     <Compile Include="IJustAClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,7 +67,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties DisLinkedXmlFile="..\TestAutomation.xml" DisProjectType="automationScriptProject" DisLinkId="1" />
+      <UserProperties DisLinkId="1" DisProjectType="automationScriptProject" DisLinkedXmlFile="..\TestAutomation.xml" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
