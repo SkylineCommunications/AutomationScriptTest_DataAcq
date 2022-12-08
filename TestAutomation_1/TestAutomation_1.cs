@@ -49,39 +49,43 @@ dd/mm/2022	1.0.0.1		XXX, Skyline	Initial version
 ****************************************************************************
 */
 
-using System.Collections.Generic;
-using System.Linq;
-
-using GenericNameSpace;
-
-using Newtonsoft.Json;
-
-using Skyline.DataMiner.Automation;
-/// <summary>
-/// DataMiner Script Class.
-/// </summary>
-public class Script
+namespace MyNamespace
 {
+
+	using System.Collections.Generic;
+	using System.Linq;
+
+	using GenericNameSpace;
+
+	using Newtonsoft.Json;
+
+	using Skyline.DataMiner.Automation;
 	/// <summary>
-	/// The Script entry point.
+	/// DataMiner Script Class.
 	/// </summary>
-	/// <param name="engine">Link with SLAutomation process.</param>
-	public void Run(Engine engine)
+	public class Script
 	{
-		List<string> videogames = new List<string>
+		/// <summary>
+		/// The Script entry point.
+		/// </summary>
+		/// <param name="engine">Link with SLAutomation process.</param>
+		public void Run(Engine engine)
+		{
+			List<string> videogames = new List<string>
 {
 	"a",
 	"b",
 	"c"
 };
 
-		string json = JsonConvert.SerializeObject(videogames);
+			string json = JsonConvert.SerializeObject(videogames);
 
-		engine.GenerateInformation("Simple TestAutomation is OK: " + json);
+			engine.GenerateInformation("Simple TestAutomation is OK: " + json);
 
-		IJustAClass j = new JustAClass();
-		j.Version = "10";
-		GenericClass generic = new GenericClass();
-		engine.GenerateInformation(generic.MakeAgentVersionFolder(j, "C:\\Skyline DataMiner"));
+			IJustAClass j = new JustAClass();
+			j.Version = "10";
+			GenericClass generic = new GenericClass();
+			engine.GenerateInformation(generic.MakeAgentVersionFolder(j, "C:\\Skyline DataMiner"));
+		}
 	}
 }

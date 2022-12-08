@@ -49,23 +49,27 @@ dd/mm/2022	1.0.0.1		XXX, Skyline	Initial version
 ****************************************************************************
 */
 
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using Skyline.DataMiner.Automation;
-
-/// <summary>
-/// DataMiner Script Class.
-/// </summary>
-public class Script
+namespace MyNamespace
 {
-	/// <summary>
-	/// The Script entry point.
-	/// </summary>
-	/// <param name="engine">Link with SLAutomation process.</param>
-	public void Run(Engine engine)
-	{
+	using System;
+	using System.Collections.Generic;
+	using System.Globalization;
+	using System.Text;
 
+	using Skyline.DataMiner.Automation;
+
+	/// <summary>
+	/// DataMiner Script Class.
+	/// </summary>
+	public class Script
+	{
+		/// <summary>
+		/// The Script entry point.
+		/// </summary>
+		/// <param name="engine">Link with SLAutomation process.</param>
+		public void Run(Engine engine)
+		{
+
+		}
 	}
 }
