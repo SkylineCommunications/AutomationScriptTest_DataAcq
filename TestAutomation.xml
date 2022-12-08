@@ -22,5 +22,10 @@
 			<!--<Param type="debug">true</Param>-->
 			<Message></Message>
 		</Exe>
+		<Exe id="2" type="csharp">
+			<Value><![CDATA[[Project:TestAutomation_2]]]></Value>
+			<!--<Param type="debug">true</Param>-->
+			<Message></Message>
+		</Exe>
 	</Script>
 </DMSScript>
