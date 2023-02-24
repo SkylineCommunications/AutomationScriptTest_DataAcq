@@ -14,8 +14,11 @@ namespace UtilitiesBis.Tests
 		[TestMethod()]
 		public void ToLowerTest()
 		{
+			Console.WriteLine(Skyline.DataMiner.Automation.CalendarMode.Decade);
+
 			var result = UtilitiesBis.UtilityBis.ToLower("B");
 
+			
 			Assert.AreEqual("b", result);
 		}
 	}

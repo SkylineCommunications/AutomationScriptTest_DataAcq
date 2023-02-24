@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Actions", "Actions", "{ACBC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomation_1", "TestAutomation_1\TestAutomation_1.csproj", "{2FFCAAB0-BCD0-4793-B192-625D6110E6A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomation_1Tests", "TestAutomation_1Tests\TestAutomation_1Tests.csproj", "{F8020F0D-9574-489E-ACAE-36231F243616}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomation_1 Tests", "TestAutomation_1Tests\TestAutomation_1 Tests.csproj", "{F8020F0D-9574-489E-ACAE-36231F243616}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAutomation_2", "TestAutomation_2\TestAutomation_2.csproj", "{015D6680-EE1F-4CC8-8776-9382C92F41E5}"
 EndProject
