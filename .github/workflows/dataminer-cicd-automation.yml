@@ -17,7 +17,7 @@ on:
 jobs:
 
   CI:
-    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@DevNesting
+    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@main
     with:
       referenceName: ${{ github.ref_name }}
       runNumber: ${{ github.run_number }}
