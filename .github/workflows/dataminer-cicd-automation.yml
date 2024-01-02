@@ -17,7 +17,7 @@ on:
 jobs:
 
   CI_Legacy:
-    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Legacy Workflow.yml@main
+    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Legacy Workflow.yml@MaxCpuCount
     with:
       referenceName: ${{ github.ref_name }}
       runNumber: ${{ github.run_number }}
