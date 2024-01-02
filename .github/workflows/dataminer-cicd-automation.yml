@@ -31,21 +31,21 @@ jobs:
       sonarCloudToken: ${{ secrets.SONAR_TOKEN }}
   
   #  Optional 0 or More CD Jobs as needed
-  CD:
-    environment: production
-    if: github.ref_type == 'tag'
-    name: CD
-    runs-on: ubuntu-latest
-    needs: CI
-    steps:
-      - uses: actions/checkout@v3
+  #CD:
+  #  environment: production
+  #  if: github.ref_type == 'tag'
+  #  name: CD
+  #  runs-on: ubuntu-latest
+  #  needs: CI
+  #  steps:
+  #    - uses: actions/checkout@v3
 
-      - name: Skyline DataMiner Deploy Action
-        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1
-        with:
-          #  Stage deploy
-          stage: Deploy
-          #  The API-key generated in the DCP Admin app as authentication for a certain DataMiner System. E.g. g597e77412e34297b827c2570a8fa2bc
-          api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
-          # Id okf the uploaded artifact
-          artifact-id: ${{ needs.CI.outputs.artifact-id }}
+#      - name: Skyline DataMiner Deploy Action
+#        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1
+#        with:
+#          #  Stage deploy
+#          stage: Deploy
+#          #  The API-key generated in the DCP Admin app as authentication for a certain DataMiner System. E.g. g597e77412e34297b827c2570a8fa2bc
+#          api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
+#          # Id okf the uploaded artifact
+#          artifact-id: ${{ needs.CI.outputs.artifact-id }}
