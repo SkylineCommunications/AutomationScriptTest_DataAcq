@@ -16,19 +16,19 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  CI:
-    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Workflow.yml@MaxCpuCount
+  CI_Legacy:
+    uses: SkylineCommunications/_ReusableWorkflows/.github/workflows/Automation Master Legacy Workflow.yml@MaxCpuCount
     with:
       referenceName: ${{ github.ref_name }}
       runNumber: ${{ github.run_number }}
       referenceType: ${{ github.ref_type }}
       repository: ${{ github.repository }}
       owner: ${{ github.repository_owner }}
-      sonarCloudProjectName: SkylineCommunications_AutomationScriptTest_DataAcq
-      # The API-key generated in the DCP Admin app (https://admin.dataminer.services/) as authentication for a certain DataMiner System. E.g. g597e77412e34297b827c2570a8fa2bc
+      sonarCloudProjectName: ${{ inputs.sonarCloudProjectName }}
     secrets:
-      api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
-      sonarCloudToken: ${{ secrets.SONAR_TOKEN }}
+      # The API-key: generated in the DCP Admin app (https://admin.dataminer.services/) as authentication for a certain DataMiner System.
+      api-key: ${{ secrets.api-key }}
+      sonarCloudToken: ${{ secrets.sonarCloudToken }}
   
   #  Optional 0 or More CD Jobs as needed
   #CD:
