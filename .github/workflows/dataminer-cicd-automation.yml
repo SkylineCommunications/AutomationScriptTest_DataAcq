@@ -24,7 +24,7 @@ jobs:
       referenceType: ${{ github.ref_type }}
       repository: ${{ github.repository }}
       owner: ${{ github.repository_owner }}
-      sonarCloudProjectName: ${{ inputs.sonarCloudProjectName }}
+      sonarCloudProjectName:  SkylineCommunications_AutomationScriptTest_DataAcq
     secrets:
       # The API-key: generated in the DCP Admin app (https://admin.dataminer.services/) as authentication for a certain DataMiner System.
       api-key: ${{ secrets.api-key }}
