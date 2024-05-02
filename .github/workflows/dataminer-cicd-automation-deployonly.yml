@@ -62,15 +62,13 @@ jobs:
        - name: Create package name
          id: packageName
          run: |
-          tempName="${{ github.repository }} ${{ github.ref_name }}"
-          echo 'name=${tempName//["\/\\<>|:*?\0]/_}' >> $GITHUB_OUTPUT
+          tempName = "${{ github.repository }} ${{ github.ref_name }}"
+          echo 'name = ${tempName//["\/\\<>|:*?\0]/_}' >> $GITHUB_OUTPUT
          shell: bash
 
        - name: Create dmapp package
          run: |
-          name = "${{ github.repository }} ${{ github.ref_name }}"
           dataminer-package-create dmapp "${{ github.workspace }}" --type automation --version ${{ github.ref_name }} --output "${{ github.workspace }}" --name "${{ steps.packageName.outputs.name }}"
-         shell: bash
 
        - name: Upload to Catalog
          id: uploadToCatalog
