@@ -62,8 +62,8 @@ jobs:
        - name: Create package name
          id: packageName
          run: |
-          tempName = "${{ github.repository }} ${{ github.ref_name }}"
-          echo 'name = ${tempName//["\/\\<>|:*?\0]/_}' >> $GITHUB_OUTPUT
+          tempName="${{ github.repository }} ${{ github.ref_name }}"
+          echo 'name=${tempName//["\/\\<>|:*?\0]/_}' >> $GITHUB_OUTPUT
          shell: bash
 
        - name: Create dmapp package
@@ -73,7 +73,7 @@ jobs:
        - name: Upload to Catalog
          id: uploadToCatalog
          run: |
-           echo id = dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}/${{ steps.packageName.outputs.name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }} >> $GITHUB_OUTPUT
+           echo id=dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}/${{ steps.packageName.outputs.name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }} >> $GITHUB_OUTPUT
 
        - name: Deploy to DataMiner
          run: |
