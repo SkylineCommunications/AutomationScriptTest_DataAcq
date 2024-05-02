@@ -21,7 +21,7 @@ jobs:
   CD:   
     name: CD
     environment: staging
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@v4
 
@@ -75,7 +75,7 @@ jobs:
        - name: Upload to Catalog
          id: uploadToCatalog
          run: |
-           echo id = dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}\\${{ steps.packageName.outputs.name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }} >> $GITHUB_OUTPUT
+           echo id = dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}/${{ steps.packageName.outputs.name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }} >> $GITHUB_OUTPUT
 
        - name: Deploy to DataMiner
          run: |
