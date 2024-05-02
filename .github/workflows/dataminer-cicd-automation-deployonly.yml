@@ -21,7 +21,7 @@ jobs:
   CD:   
     name: CD
     environment: staging
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
        - uses: actions/checkout@v4
 
@@ -59,13 +59,23 @@ jobs:
            dotnet tool install -g Skyline.DataMiner.CICD.Tools.CatalogUpload
            dotnet tool install -g Skyline.DataMiner.CICD.Tools.DataMinerDeploy
 
+       - name: Create package name
+         id: packageName
+         run: |
+          tempName = "${{ github.repository }} ${{ github.ref_name }}"
+          echo name = $tempName//["\/\\<>|:*?\0]/_ >> $GITHUB_OUTPUT
+         shell: bash
+
        - name: Create dmapp package
-         run: dataminer-package-create dmapp "${{ github.workspace }}" --type automation --version ${{ github.ref_name }} --output "${{ github.workspace }}" --name "${{ github.repository////_ }} ${{ github.ref_name }}"
+         run: |
+          name = "${{ github.repository }} ${{ github.ref_name }}"
+          dataminer-package-create dmapp "${{ github.workspace }}" --type automation --version ${{ github.ref_name }} --output "${{ github.workspace }}" --name "${{ steps.packageName.outputs.name }}"
+         shell: bash
 
        - name: Upload to Catalog
          id: uploadToCatalog
          run: |
-           echo id = dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}\\${{ github.repository////_ }} ${{ github.ref_name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }} >> $GITHUB_OUTPUT
+           echo id = dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}\\${{ steps.packageName.outputs.name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }} >> $GITHUB_OUTPUT
 
        - name: Deploy to DataMiner
          run: |
