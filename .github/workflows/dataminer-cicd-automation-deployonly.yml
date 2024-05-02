@@ -63,7 +63,7 @@ jobs:
          id: packageName
          run: |
           tempName="${{ github.repository }} ${{ github.ref_name }}"
-          echo 'name=${tempName//["\/\\<>|:*?\0]/_}' >> $GITHUB_OUTPUT
+          echo name=${tempName//["\/\\<>|:*?\0]/_} >> $GITHUB_OUTPUT
          shell: bash
 
        - name: Create dmapp package
