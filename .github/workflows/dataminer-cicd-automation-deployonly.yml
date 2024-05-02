@@ -1,4 +1,4 @@
-name: DataMiner DeployOnly Automation GitLab
+name: DataMiner DeployOnly Automation
 
 # Prerequisite: secret 'DATAMINER_DEPLOY_KEY' necessary on Repository or Organization level.
 # Value is the API-key generated in the DCP Admin app (https://admin.dataminer.services/) as authentication for a certain DataMiner System.
@@ -22,7 +22,7 @@ jobs:
     environment: staging
     runs-on: ubuntu-latest
     steps:
-       - uses: actions/checkout@v3
+       - uses: actions/checkout@v4
 
        - name: Find .sln file
          id: findSlnFile 
@@ -54,7 +54,7 @@ jobs:
 
        - name: Skyline DataMiner Deploy Action Development
          if: github.ref_type == 'branch'
-         uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1.0.30-test23
+         uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1
          with:
            # Stage deploy
            stage: All
@@ -66,7 +66,7 @@ jobs:
            
        - name: Skyline DataMiner Deploy Action Release
          if: github.ref_type == 'tag'
-         uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1.0.30-test23
+         uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1
          with:
            # Stage deploy
            stage: All
