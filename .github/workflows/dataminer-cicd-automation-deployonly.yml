@@ -82,6 +82,7 @@ jobs:
        - name: Upload to Catalog
          id: uploadToCatalog
          run: echo "id=$(dataminer-catalog-upload --path-to-artifact "${{ github.workspace }}/${{ steps.packageName.outputs.name }}.dmapp" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }})" >> $GITHUB_OUTPUT
+         shell: bash
 
        - name: Deploy to DataMiner
          run: dataminer-package-deploy from-catalog --artifact-id "${{ steps.uploadToCatalog.outputs.id }}" --dm-catalog-token ${{ secrets.DATAMINER_DEPLOY_KEY }}
